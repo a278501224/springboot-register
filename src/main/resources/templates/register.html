@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>注册界面</title>
+<script type="text/javascript" src="/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/js/register.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="/css/register.css"/>
+</head>
+<body>
+	<div id="register">
+		<h1 id="newUserRegister">新用户注册</h1>
+		<div class="register_group">
+			<!-- <label for="username">用户名:&nbsp;&nbsp;&nbsp;</label> -->
+			<input type="text" id="username" name="username" placeholder="请输入用户名" minlength="5" maxlength="9" 
+			onfocus="username_onfocus(this)" onblur="username_onblur(this)" required>
+			<span id="username_hint" ></span>
+		</div>
+		<div class="register_group">
+			<!-- <label for="password">密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> -->
+			<input type="password" id="password" name="password" placeholder="请输入密码" minlength="6" maxlength="12"
+			onfocus="password_onfocus(this)" onblur="password_onblur(this)" required>
+			<span id="password_hint" ></span>
+		</div>
+		<div class="register_group">
+			<!-- <label for="passwordConfirm">确认密码:</label> -->
+			<input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="请确认密码" minlength="6" maxlength="12"
+			onfocus="confirmPassword_onfocus(this)" onblur="confirmPassword_onblur(this)" required>
+			<span id="passwordConfirm_hint"></span>
+		</div>
+		<div class="register_group">
+			<!-- <label for="phone">手机号:&nbsp;&nbsp;&nbsp;</label> -->
+			<input type="text" id="phone" name="phone" placeholder="请输入手机号" minlength="11" maxlength="11"
+			onfocus="phone_onfocus(this)" onblur="phone_onblur(this)" required >
+			 <span id="phone_hint"></span>
+		</div>
+		<div class="register_group">
+			<!-- <label for="password">邮箱地址:</label> -->
+			<input type="email" id="email" name="email" placeholder="请输入邮箱地址" maxlength="50"
+			onfocus="email_onfocus(this)" onblur="email_onblur(this)" required >
+			<span id="email_hint" ></span>
+		</div>
+			<button id="registerCommit" type="button" onclick="registerCommit()">注册</button>
+	</div>
+</body>
+</html>
