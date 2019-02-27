@@ -19,7 +19,16 @@ img {
 	margin: 11px;
 }
 
-#newUserRegister{
+/*显示隐藏密码图片*/
+#passwordVisible{
+width: 30px;
+height: 16px;
+position: absolute;  
+left: 250px; 
+margin: 11px;  
+}
+
+#userLogin{
 	 color: #fff;
     text-shadow:0 0 10px;
     letter-spacing: 1px;
@@ -29,7 +38,7 @@ img {
     padding-left: 70px;
 }
 
-#register {
+#login {
 	position: absolute;
     top: 38%;
     left:50%;
@@ -55,7 +64,7 @@ input {
 	background-color: #2D2D3F;
 }
 
-#registerCommit {
+#loginCommit {
 	width: 300px;
 	min-height: 20px;
 	display: block;
@@ -69,22 +78,17 @@ input {
 	margin: 0;
 }
 
-#username_hint{
-	color: white;
-}
-#password_hint{
-	color:white;
-}
-#passwordConfirm_hint{
-	color: white;
-}
-#phone_hint{
-	color:white;
-}
-#email_hint{
-	color:white;
+.goRegister a{
+	padding-left: 230px;
 }
 
-.goLogin a{
-	padding-left: 250px;
-}
+.mms-error{
+    position: relative;
+    background: indianred;
+    color: white;
+    border: 1px solid #faccc6;
+    padding: 0px 10px 0px 40px;
+    line-height: 15px;
+    height: auto;
+    width: 248px;
+	}

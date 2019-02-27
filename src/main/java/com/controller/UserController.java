@@ -39,7 +39,24 @@ public class UserController {
 	public String showRegister() {
 		return "register";
 	}
+	
+	/**
+	 * 登陆页面
+	 * @return
+	 */
+	@RequestMapping("/login")
+	public String showLogin() {
+		return "login";
+	}
 
+	/**
+	 * 首页
+	 * @return
+	 */
+	@RequestMapping("/index")
+	public String showindex() {
+		return "index";
+	}
 	/**
 	 * 校验用户名
 	 * 
@@ -109,6 +126,11 @@ public class UserController {
 		return rr;
 	}
 	
+	/**
+	 * 用户注册提交
+	 * @param user 用户信息
+	 * @return
+	 */
 	@RequestMapping("/handleRegister")
 	@ResponseBody
 	public ResponseResult<Void> register(User user){
@@ -120,7 +142,21 @@ public class UserController {
 				rr =new ResponseResult<Void>(1,"注册成功");
 				logger.info("新用户注册成功");
 			}
-		
+		return rr;
+	}
+	
+	@RequestMapping("/handleLogin")
+	@ResponseBody
+	public ResponseResult<Void> login(User user){
+		boolean result = userSerivce.checkLoginExists(user.getUsername(), user.getPassword());
+		logger.info("用户名和密码匹配是否成功："+result);
+		if(result) {
+			rr=new ResponseResult<Void>(1,"登陆成功");
+			logger.info("账号登陆成功");
+		}else {
+			rr = new ResponseResult<Void>(0,"登陆失败");
+			logger.info("账号登陆失败");
+		}
 		return rr;
 	}
 }

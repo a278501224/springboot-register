@@ -1,6 +1,6 @@
 //用户名获取焦点
 function username_onfocus(x) {
-	x.nextElementSibling.innerHTML = "用户名长度在5~9位之间(英文字母组合)";
+	x.nextElementSibling.innerHTML = "用户名长度在5~16位之间(英文字母组合)";
 	$("#username_hint").css("background-color", "#999");
 }
 
@@ -196,7 +196,6 @@ function registerCommit() {
 	};
 
 	if (password == passwordConfirm) {
-		debugger;
 		var count = 0;
 		$(".register_group").each(function() {
 			if ($(this).find("span").hasClass("msg-success")) {
@@ -212,7 +211,8 @@ function registerCommit() {
 				success : function(data) {
 					debugger;
 					if (data.respCode == 1) {
-						alert("登录成功");
+						location.href="../user/login";
+						alert("注册成功");
 					} else {
 						alert("登陆失败");
 					}

@@ -40,4 +40,12 @@ public interface IUserService {
 	 */
 	boolean checkEmailExists(String email);
 	
+	/**
+	 * 用户数据
+	 * @param username	用户名
+	 * @param password	密码
+	 * @return	如果存在匹配的用户名和密码返回true，没有返回false
+	 */
+	boolean checkLoginExists(String username,String password);
+	
 }

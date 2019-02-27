@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>登陆界面</title>
+<script type="text/javascript" src="/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/js/login.js"></script>
+<script type="text/javascript" src="/js/showOrHidePassword.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="/css/login.css"/>
+</head>
+<body>
+	<body>
+	<div id="login">
+		<h1 id="userLogin">用户登陆</h1>
+		<div class="mms-error" hidden="false">
+		<div class="usernameNull" >请输入用户名</div>
+		<div class="passwordNull" >请输入密码</div>
+		<div class="unamePwdNull" >请输入用户名和密码</div>
+		<div class="commitResult" >用户名与密码不匹配,请重新输入</div>
+		</div>
+		<div class="login_group">
+			<input type="text" id="username" name="username" placeholder="请输入用户名" minlength="5" maxlength="16"  >
+			<span id="username_hint" ></span>
+		</div>
+		<div class="login_group">
+			<img id="passwordVisible" src="../img/passwordUnvisible.png">
+			<input type="password" id="password" name="password" placeholder="请输入密码" minlength="6" maxlength="12">
+			<span id="password_hint" ></span>
+		</div>
+			<button id="loginCommit" type="button" onclick="loginCommit()">登陆</button>
+			<div class="goRegister">
+				<a href="../user/register">立即注册</a>
+			</div>
+	</div>
+</body>
+</body>
+</html>

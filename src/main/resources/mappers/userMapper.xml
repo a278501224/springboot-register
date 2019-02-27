@@ -57,4 +57,17 @@
 		WHERE
 			email=#{email}
 	</select>
+	
+	<!-- 根据用户名和密码查询用户信息 -->
+	<!-- Integer getCountByUsernameAndPassword(String username,String password); -->
+	<select id= "getCountByUsernameAndPassword" resultType="java.lang.Integer">
+		SELECT
+			COUNT(id)
+		FROM
+			c_user
+		WHERE
+			username=#{username}
+		AND
+			password=#{password}
+	</select>
 </mapper>

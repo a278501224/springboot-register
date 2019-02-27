@@ -39,5 +39,13 @@ public interface UserMapper {
 	 */
 	Integer getCountByEmail(String email);
 	
+	/**
+	 * 根据用户名和密码查询用户信息
+	 * @param username	用户名
+	 * @param password	密码
+	 * @return
+	 */
+	Integer getCountByUsernameAndPassword(String username,String password);
+	
 	
 }

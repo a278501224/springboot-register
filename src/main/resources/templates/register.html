@@ -13,7 +13,7 @@
 		<h1 id="newUserRegister">新用户注册</h1>
 		<div class="register_group">
 			<!-- <label for="username">用户名:&nbsp;&nbsp;&nbsp;</label> -->
-			<input type="text" id="username" name="username" placeholder="请输入用户名" minlength="5" maxlength="9" 
+			<input type="text" id="username" name="username" placeholder="请输入用户名" minlength="5" maxlength="16" 
 			onfocus="username_onfocus(this)" onblur="username_onblur(this)" required>
 			<span id="username_hint" ></span>
 		</div>
@@ -42,6 +42,9 @@
 			<span id="email_hint" ></span>
 		</div>
 			<button id="registerCommit" type="button" onclick="registerCommit()">注册</button>
+		<div class="goLogin">
+			<a href="../user/login">请登陆</a>
+		</div>
 	</div>
 </body>
 </html>

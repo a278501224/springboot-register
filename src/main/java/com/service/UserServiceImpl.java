@@ -27,6 +27,7 @@ public class UserServiceImpl implements IUserService{
 	UserMapper userMapper;
 	//用户名已被占用
 	private static final Integer USERNAME_EXISTS = 0;
+	//用户名没有被占用
 	private static final Integer USERNAME_ISNOTEXISTS=1;
 
 	@Override
@@ -65,6 +66,11 @@ public class UserServiceImpl implements IUserService{
 	
 	public boolean checkEmailExists(String email) {
 		return userMapper.getCountByEmail(email)>0;
+	}
+
+	@Override
+	public boolean checkLoginExists(String username, String password) {
+		return userMapper.getCountByUsernameAndPassword(username, password)==1;
 	}
 
 }

@@ -80,7 +80,15 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
+	<!-- shiro -->
+<dependency>
+   <groupId>org.apache.shiro</groupId>
+   <artifactId>shiro-all</artifactId>
+   <version>1.2.2</version>
+</dependency>
 	</dependencies>
+	
+
 
 
 	<build>
