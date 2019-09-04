@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.bean.User;
 
-@RunWith(SpringRunner.class)//标识为JUnit的运行环境
+//@RunWith(SpringRunner.class)//标识为JUnit的运行环境
 @SpringBootTest//获取启动类、加载配置，确定装载Spring Boot；
 public class JdbcConnect {
 	private final static Logger logger = LoggerFactory.getLogger(JdbcConnectTest.class);
@@ -31,7 +31,7 @@ public class JdbcConnect {
 				//连接mySql的用户名
 				String name="root";
 				//连接mySql的密码
-				String password="yourpassword1";
+				String password="yourpassword";
 				
 				try {
 					Class.forName(driver);

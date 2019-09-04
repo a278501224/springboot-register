@@ -17,7 +17,7 @@ import com.service.IUserService;
  * @version 1.0.0
  * @since 创建时间：2019年2月16日
  * 功能描述：
- * 官方网站：www.cindy.com
+ * 官方网站：yichaotang.cn
  * 邮箱地址：yichaotang@qq.com
  */
 @Controller
@@ -57,6 +57,16 @@ public class UserController {
 	public String showindex() {
 		return "index";
 	}
+	
+	/**
+	 * 做个demo页面测试bootstrap
+	 * @return
+	 */
+	@RequestMapping("/demo")
+	public String showDemo() {
+		return "demo";
+	}
+	
 	/**
 	 * 校验用户名
 	 * 

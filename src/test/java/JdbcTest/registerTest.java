@@ -28,6 +28,7 @@ public class registerTest {
 	/**
 	 * 校验
 	 */
+	@Test
 	public void checkUsername() {
 		System.out.println("校验用户名是否存在："+userMapper.findUserByUsername("admin1"));
 	}

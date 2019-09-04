@@ -34,7 +34,7 @@ public class ShiroTest {
 			UsernamePasswordToken token = new UsernamePasswordToken("root","secret");
 			token.setRememberMe(true);
 			try {
-				currentUser.login(token);
+				currentUser.login(token);	
 				System.out.println("用户名密码正确，登陆成功");
 			} catch (UnknownAccountException e) {
 				System.out.println("账户不存在");

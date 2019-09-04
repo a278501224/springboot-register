@@ -16,7 +16,7 @@ import com.mapper.UserMapper;
  * @since 
  * 创建时间：2019年2月16日
  * 功能描述：
- * 官方网站：www.cindy.com
+ * 官方网站：yichaotang.cn
  * 邮箱地址：yichaotang@qq.com
  */
 @Service("userService")

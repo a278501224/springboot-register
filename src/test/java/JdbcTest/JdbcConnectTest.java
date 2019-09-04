@@ -18,7 +18,7 @@ public class JdbcConnectTest {
 		//连接mySql的用户名
 		String name="root";
 		//连接mySql的密码
-		String password="yourpassword1";
+		String password="yourpassword";
 		
 		try {
 			Class.forName(driver);
