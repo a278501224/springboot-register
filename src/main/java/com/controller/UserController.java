@@ -2,11 +2,12 @@ package com.controller;
 
 import javax.annotation.Resource;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import com.bean.ResponseResult;
 import com.bean.User;
@@ -20,6 +21,8 @@ import com.service.IUserService;
  * 官方网站：yichaotang.cn
  * 邮箱地址：yichaotang@qq.com
  */
+@Api(tags = "用户")
+@CrossOrigin(maxAge = 3600)
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -28,14 +31,14 @@ public class UserController {
 	@Resource(name = "userService")
 	private IUserService userSerivce;
 
-	ResponseResult<Void> rr;
+	private ResponseResult<Void> rr;
 
 	/**
 	 * 注册页面
 	 * 
 	 * @return
 	 */
-	@RequestMapping("/register")
+	@GetMapping("/register")
 	public String showRegister() {
 		return "register";
 	}
@@ -44,7 +47,7 @@ public class UserController {
 	 * 登陆页面
 	 * @return
 	 */
-	@RequestMapping("/login")
+	@GetMapping("/login")
 	public String showLogin() {
 		return "login";
 	}
@@ -53,7 +56,7 @@ public class UserController {
 	 * 首页
 	 * @return
 	 */
-	@RequestMapping("/index")
+	@GetMapping("/index")
 	public String showindex() {
 		return "index";
 	}
@@ -62,7 +65,7 @@ public class UserController {
 	 * 做个demo页面测试bootstrap
 	 * @return
 	 */
-	@RequestMapping("/demo")
+	@GetMapping("/demo")
 	public String showDemo() {
 		return "demo";
 	}
@@ -73,7 +76,7 @@ public class UserController {
 	 * @param username 用户名
 	 * @return
 	 */
-	@RequestMapping("/checkUserName")
+	@PostMapping("/checkUserName")
 	@ResponseBody
 	public ResponseResult<Void> checkUserName(String username) {
 		boolean result = userSerivce.checkUsernameExists(username);
@@ -82,10 +85,10 @@ public class UserController {
 		// 判断检查结果
 		if (result) {
 			// 结果为true，用户名已存在
-			rr = new ResponseResult<Void>(0, "用户名已被占用");
+			rr = new ResponseResult<>(0, "用户名已被占用");
 		} else {
 			// 结果为false，用户名不存在
-			rr = new ResponseResult<Void>(1, "用户名可以使用");
+			rr = new ResponseResult<>(1, "用户名可以使用");
 		}
 		return rr;
 	}
@@ -94,9 +97,8 @@ public class UserController {
 	 * 校验手机号
 	 * 
 	 * @param phone 手机号
-	 * @return
 	 */
-	@RequestMapping("/checkPhone")
+	@PostMapping("/checkPhone")
 	@ResponseBody
 	public ResponseResult<Void> checkPhone(String phone) {
 		boolean result = userSerivce.checkPhoneExists(phone);
@@ -117,9 +119,8 @@ public class UserController {
 	 * 校验邮箱
 	 * 
 	 * @param email 邮箱地址
-	 * @return
 	 */
-	@RequestMapping("/checkEmail")
+	@PostMapping("/checkEmail")
 	@ResponseBody
 	public ResponseResult<Void> checkEmail(String email) {
 		boolean result = userSerivce.checkEmailExists(email);
@@ -128,10 +129,10 @@ public class UserController {
 		// 判断检查结果
 		if (result) {
 			// 结果为true,邮箱地址已存在
-			rr = new ResponseResult<Void>(0, "邮箱地址已经被注册");
+			rr = new ResponseResult<>(0, "邮箱地址已经被注册");
 		} else {
 			// 结果为false,邮箱地址不存在
-			rr = new ResponseResult<Void>(1, "邮箱地址可以正常使用");
+			rr = new ResponseResult<>(1, "邮箱地址可以正常使用");
 		}
 		return rr;
 	}
@@ -139,32 +140,34 @@ public class UserController {
 	/**
 	 * 用户注册提交
 	 * @param user 用户信息
-	 * @return
 	 */
-	@RequestMapping("/handleRegister")
+	@ApiOperation("用户注册提交")
+	@PostMapping("/handleRegister")
 	@ResponseBody
 	public ResponseResult<Void> register(User user){
 			Integer result = userSerivce.register(user);
 			if (result==0) {
-				rr = new ResponseResult<Void>(0,"用户名已经存在");
+				rr = new ResponseResult<>(0,"用户名已经存在");
 				logger.info("新用户注册失败");
 			}else {
-				rr =new ResponseResult<Void>(1,"注册成功");
+				rr =new ResponseResult<>(1,"注册成功");
 				logger.info("新用户注册成功");
 			}
 		return rr;
 	}
-	
-	@RequestMapping("/handleLogin")
+
+
+	@ApiOperation("用户登陆")
+	@PostMapping("/handleLogin")
 	@ResponseBody
 	public ResponseResult<Void> login(User user){
 		boolean result = userSerivce.checkLoginExists(user.getUsername(), user.getPassword());
 		logger.info("用户名和密码匹配是否成功："+result);
 		if(result) {
-			rr=new ResponseResult<Void>(1,"登陆成功");
+			rr=new ResponseResult<>(1,"登陆成功");
 			logger.info("账号登陆成功");
 		}else {
-			rr = new ResponseResult<Void>(0,"登陆失败");
+			rr = new ResponseResult<>(0,"登陆失败");
 			logger.info("账号登陆失败");
 		}
 		return rr;

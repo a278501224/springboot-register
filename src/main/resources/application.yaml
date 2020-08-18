@@ -1,0 +1,25 @@
+server:
+  port: 443
+spring:
+  application:
+    name: cherryPersonalWebSite
+  profiles:
+    active: dev
+
+#mybatis Scan
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+
+
+
+#\u5BC6\u7801\u52A0\u5BC6
+#myKey=\u4EAE\u4EAE\u662F\u5927\u5E05\u6BD4
+
+#thymeleaf start
+#spring.thymeleaf.mode=HTML5
+#spring.thymeleaf.encoding=UTF-8
+#spring.thymeleaf.servlet.content-type=text/html
+##\u5F00\u53D1\u65F6\u5173\u95ED\u7F13\u5B58\uFF0C\u5426\u5219\u65E0\u6CD5\u67E5\u770B\u5B9E\u65F6\u9875\u9762
+#spring.thymeleaf.cache=false
+##spring.thymeleaf.prefix=classpath:/templates/
+

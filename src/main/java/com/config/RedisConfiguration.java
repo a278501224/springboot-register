@@ -9,10 +9,9 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
 public class RedisConfiguration {
-	@SuppressWarnings("rawtypes")
 	@Autowired
 	private RedisTemplate redisTemplate;
-	
+
 	@SuppressWarnings("unchecked")
 	@Bean
 	public RedisTemplate<String, Object> stringSerializerRedisTemplate(){
@@ -23,5 +22,5 @@ public class RedisConfiguration {
 		redisTemplate.setHashValueSerializer(stringSerializer);
 		return redisTemplate;
 	}
-	
+
 }
